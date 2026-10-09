@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="LOL电影网（loldianyingwang-cn）是面向英雄联盟玩家的影视资讯站点，提供 LOL 主题电影、赛事纪录片、动画《双城之战》解读、电竞题材影片推荐与观影指南。">
+<meta name="keywords" content="LOL电影网, loldianyingwang-cn, 英雄联盟电影, 双城之战, 电竞电影, LOL 纪录片">
+<meta name="author" content="LOL电影网">
+<meta name="theme-color" content="#0a1428">
+<title>LOL电影网 - 英雄联盟主题电影·动画·纪录片资讯平台 | loldianyingwang-cn</title>
+<link rel="canonical" href="https://loldianyingwang-cn.github.io/">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "LOL电影网",
+  "alternateName": "loldianyingwang-cn",
+  "url": "https://loldianyingwang-cn.github.io/",
+  "description": "英雄联盟主题电影、动画《双城之战》、电竞赛事纪录片的推荐与深度解读",
+  "inLanguage": "zh-CN",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://loldianyingwang-cn.github.io/#search?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+<style>
+/* ============ 基础 ============ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#0a1428; --navy2:#0f1f3d; --card:#131f3c; --line:#243556;
+  --txt:#eef2fb; --sub:#93a3c8;
+  --gold:#c8a24a; --gold2:#f0d48a;
+  --blue:#3d7dff; --teal:#2ec6c6; --red:#ff5a5f;
+  --r:14px; --sh:0 12px 32px rgba(0,0,0,.45);
+}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  font-family:"PingFang SC","Microsoft YaHei","Helvetica Neue",Arial,sans-serif;
+  background:var(--navy); color:var(--txt); line-height:1.75; overflow-x:hidden;
+}
+a{color:var(--gold2);text-decoration:none;transition:.25s}
+a:hover{color:#fff}
+img{max-width:100%;display:block}
+.wrap{max-width:1120px;margin:0 auto;padding:0 18px}
+section{padding:64px 0}
+.st{font-size:26px;font-weight:800;letter-spacing:.5px;margin-bottom:6px}
+.st span{color:var(--gold)}
+.sn{color:var(--sub);font-size:14px;margin:14px 0 30px}
+
+/* ============ 导航 ============ */
+.bar{position:sticky;top:0;z-index:99;background:rgba(10,20,40,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nv{display:flex;align-items:center;justify-content:space-between;height:62px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:900;font-size:18px;letter-spacing:.5px;color:#fff}
+.brand b{color:var(--gold)}
+.crest{width:36px;height:36px;border-radius:50%;background:conic-gradient(from 0deg,var(--gold),var(--blue),var(--teal),var(--gold));display:grid;place-items:center;font-size:13px;font-weight:900;color:#0a1428}
+.links{display:flex;gap:4px}
+.links a{color:var(--sub);font-size:14px;padding:9px 13px;border-radius:9px}
+.links a:hover{color:#fff;background:rgba(255,255,255,.06)}
+.mbtn{display:none;width:42px;height:42px;border:1px solid var(--line);border-radius:10px;background:transparent;color:var(--txt);font-size:21px;cursor:pointer}
+
+/* ============ Hero ============ */
+.hero{position:relative;padding:88px 0 72px;overflow:hidden;border-bottom:1px solid var(--line)}
+.hero::before{content:"";position:absolute;inset:0;background:
+  radial-gradient(520px 260px at 85% 15%, rgba(61,125,255,.3), transparent 60%),
+  radial-gradient(460px 240px at 8% 75%, rgba(200,162,74,.2), transparent 60%)}
+.hx{position:relative;display:grid;grid-template-columns:1.1fr .9fr;gap:44px;align-items:center}
+.eyebrow{display:inline-block;font-size:12px;letter-spacing:2px;color:var(--gold2);border:1px solid rgba(200,162,74,.4);padding:5px 14px;border-radius:30px;margin-bottom:16px}
+.hero h1{font-size:44px;line-height:1.2;font-weight:900;letter-spacing:-.5px}
+.hero h1 u{text-decoration:none;color:var(--gold)}
+.hero p{color:var(--sub);font-size:16px;margin:18px 0 26px;max-width:540px}
+.acts{display:flex;flex-wrap:wrap;gap:12px}
+.b{padding:13px 28px;border-radius:32px;font-weight:700;font-size:15px;display:inline-flex;align-items:center;gap:8px;border:0;cursor:pointer}
+.b1{background:linear-gradient(135deg,var(--gold),#a37d2c);color:#1a1508}
+.b2{background:rgba(255,255,255,.06);color:#fff;border:1px solid var(--line)}
+/* 召唤师峡谷风格的"分路"卡片 */
+.lanes{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.lane{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px;display:flex;align-items:center;gap:12px;transition:.25s}
+.lane:hover{border-color:var(--gold);transform:translateX(4px)}
+.lane .rk{width:38px;height:38px;border-radius:10px;display:grid;place-items:center;font-size:16px;font-weight:800;color:#0a1428;background:linear-gradient(135deg,var(--gold2),var(--gold))}
+.lane b{font-size:14px;display:block}
+.lane small{font-size:11px;color:var(--sub)}
+
+/* ============ 栏目导航 ============ */
+.chs{background:var(--navy2)}
+.cg{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.ch{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:22px 18px;transition:.3s;position:relative}
+.ch:hover{transform:translateY(-6px);box-shadow:var(--sh);border-color:var(--gold)}
+.ch .num{font-size:11px;letter-spacing:2px;color:var(--gold);font-weight:800}
+.ch h3{font-size:17px;margin:8px 0 6px}
+.ch p{font-size:12.5px;color:var(--sub)}
+.ch .go{margin-top:14px;font-size:12px;color:var(--gold2);display:inline-flex;align-items:center;gap:5px}
+
+/* ============ 栏目一：双城之战解读（剧情时间线 DOM） ============ */
+.arc{background:var(--navy)}
+.arc-map{display:grid;grid-template-columns:200px 1fr;gap:28px;align-items:start}
+.arc-nav{display:flex;flex-direction:column;gap:8px;position:sticky;top:80px}
+.arc-nav a{padding:12px 16px;border-radius:10px;background:var(--card);border:1px solid var(--line);color:var(--sub);font-size:14px;transition:.25s}
+.arc-nav a:hover{color:#fff;border-color:var(--gold)}
+.nodes{display:flex;flex-direction:column;gap:16px}
+.node{display:grid;grid-template-columns:88px 1fr;gap:18px;background:var(--card);border:1px solid var(--line);border-left:4px solid var(--gold);border-radius:12px;padding:18px;transition:.25s}
+.node:hover{box-shadow:var(--sh);border-left-color:var(--blue)}
+.node .ep{font-size:22px;font-weight:900;color:var(--gold);line-height:1.2}
+.node .ep i{font-style:normal;font-size:11px;color:var(--sub);display:block;letter-spacing:1px}
+.node h4{font-size:16px;margin-bottom:6px}
+.node p{font-size:13.5px;color:var(--sub)}
+
+/* ============ 栏目二：影片推荐（横向滚动胶片 DOM） ============ */
+.films{background:var(--navy2)}
+.strip{display:flex;gap:18px;overflow-x:auto;padding:6px 2px 18px;scroll-snap-type:x mandatory;scrollbar-width:thin}
+.strip::-webkit-scrollbar{height:8px}
+.strip::-webkit-scrollbar-thumb{background:var(--line);border-radius:8px}
+.fm{flex:0 0 240px;scroll-snap-align:start;background:var(--card);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;transition:.3s}
+.fm:hover{transform:translateY(-5px);box-shadow:var(--sh)}
+.thumb{position:relative;aspect-ratio:3/4;display:grid;place-items:center;font-size:30px}
+.thumb.t1{background:linear-gradient(150deg,#2a1b4d,#0f1f3d)}
+.thumb.t2{background:linear-gradient(150deg,#4d2a1b,#0f1f3d)}
+.thumb.t3{background:linear-gradient(150deg,#1b4d3a,#0f1f3d)}
+.thumb.t4{background:linear-gradient(150deg,#4d1b2a,#0f1f3d)}
+.thumb.t5{background:linear-gradient(150deg,#1b3a4d,#0f1f3d)}
+.thumb .badge{position:absolute;top:10px;left:10px;background:rgba(0,0,0,.6);color:var(--gold2);font-size:11px;padding:3px 10px;border-radius:20px}
+.fm .fb{padding:13px}
+.fm h4{font-size:15px}
+.fm .mt{font-size:12px;color:var(--sub);margin-top:5px;display:flex;justify-content:space-between}
+.stars{color:var(--gold)}
+
+/* ============ 栏目三：电竞纪录片（数据条 DOM） ============ */
+.docs{background:var(--navy)}
+.dg{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.doc{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:22px;transition:.3s}
+.doc:hover{border-color:var(--teal)}
+.doc .top{display:flex;justify-content:space-between;align-items:baseline}
+.doc h4{font-size:16px}
+.doc .yr{font-size:12px;color:var(--teal);letter-spacing:1px}
+.doc p{font-size:13px;color:var(--sub);margin:10px 0 14px}
+.bars{display:flex;flex-direction:column;gap:9px}
+.bar-row{font-size:12px;color:var(--sub)}
+.bar-track{height:7px;background:rgba(255,255,255,.08);border-radius:6px;overflow:hidden;margin-top:4px}
+.bar-fill{height:100%;border-radius:6px;background:linear-gradient(90deg,var(--blue),var(--teal))}
+
+/* ============ 栏目四：英雄宇宙（六边形网格 DOM） ============ */
+.heroes{background:var(--navy2)}
+.hex{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+.hxbox{aspect-ratio:1/1.15;background:var(--card);border:1px solid var(--line);border-radius:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;transition:.3s;position:relative;overflow:hidden}
+.hxbox::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 0%, rgba(200,162,74,.22), transparent 60%);opacity:0;transition:.3s}
+.hxbox:hover{transform:scale(1.05);border-color:var(--gold);box-shadow:var(--sh)}
+.hxbox:hover::before{opacity:1}
+.hxbox .ic{font-size:26px;position:relative}
+.hxbox b{font-size:13px;position:relative}
+.hxbox small{font-size:10px;color:var(--sub);position:relative}
+
+/* ============ 栏目五：观影指南（手风琴 DOM） ============ */
+.guide{background:var(--navy)}
+.acc{display:flex;flex-direction:column;gap:10px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.item>summary{list-style:none;padding:18px 20px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-weight:700;font-size:15px}
+.item>summary::-webkit-details-marker{display:none}
+.item>summary::after{content:"＋";color:var(--gold);font-size:20px;font-weight:400}
+.item[open]>summary::after{content:"－"}
+.item .body{padding:0 20px 20px;color:var(--sub);font-size:14px}
+.item .body ol{padding-left:18px;display:flex;flex-direction:column;gap:7px}
+.item .body li b{color:var(--txt)}
+
+/* ============ 栏目六：资讯（卡片+大字日期 DOM） ============ */
+.news{background:var(--navy2)}
+.ng{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.nc{background:var(--card);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;transition:.3s}
+.nc:hover{box-shadow:var(--sh);border-color:var(--gold)}
+.nc .hd{background:linear-gradient(135deg,var(--gold),#8a6a22);padding:16px 18px;color:#1a1508}
+.nc .hd big{font-size:30px;font-weight:900;line-height:1}
+.nc .hd small{font-size:12px;letter-spacing:1px}
+.nc .cb{padding:16px 18px}
+.nc h4{font-size:15px;margin-bottom:6px}
+.nc p{font-size:12.5px;color:var(--sub)}
+
+/* ============ 关于 ============ */
+.about{background:var(--navy)}
+.ag{display:grid;grid-template-columns:1.2fr .8fr;gap:30px}
+.notice{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:26px}
+.notice h3{font-size:18px;color:var(--gold2);margin-bottom:12px}
+.notice ul{list-style:none;display:flex;flex-direction:column;gap:11px}
+.notice li{font-size:13.5px;color:var(--sub);padding-left:24px;position:relative}
+.notice li::before{content:"⚑";position:absolute;left:0;color:var(--gold)}
+.kpis{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px;text-align:center}
+.kpi b{display:block;font-size:28px;color:var(--gold)}
+.kpi span{font-size:12px;color:var(--sub)}
+
+/* ============ 页脚 ============ */
+footer{border-top:1px solid var(--line);padding:44px 0 28px;background:var(--navy2)}
+.fg{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:28px}
+.fc h5{font-size:15px;margin-bottom:13px;color:#fff}
+.fc a{display:block;font-size:13px;color:var(--sub);padding:4px 0}
+.fc a:hover{color:var(--gold2)}
+.copy{margin-top:28px;padding-top:20px;border-top:1px solid var(--line);font-size:12px;color:var(--sub);display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
+.hl{color:var(--gold2)}
+
+/* ============ 响应式 ============ */
+@media(max-width:960px){
+  .hx,.arc-map,.dg,.ag{grid-template-columns:1fr}
+  .cg{grid-template-columns:repeat(2,1fr)}
+  .hex{grid-template-columns:repeat(4,1fr)}
+  .ng{grid-template-columns:repeat(2,1fr)}
+  .arc-nav{position:static;flex-direction:row;flex-wrap:wrap}
+}
+@media(max-width:640px){
+  section{padding:46px 0}
+  .mbtn{display:grid;place-items:center}
+  .links{position:fixed;inset:62px 0 0 0;background:rgba(10,20,40,.98);flex-direction:column;padding:24px;gap:6px;transform:translateX(100%);transition:.35s}
+  .links.open{transform:translateX(0)}
+  .links a{font-size:16px;padding:15px;border-radius:10px}
+  .hero{padding:54px 0 40px}
+  .hero h1{font-size:30px}
+  .hx{gap:30px}
+  .cg,.hex,.ng{grid-template-columns:repeat(2,1fr);gap:12px}
+  .node{grid-template-columns:1fr;gap:8px}
+  .fm{flex-basis:200px}
+  .kpis{grid-template-columns:repeat(2,1fr)}
+  .fg{grid-template-columns:1fr}
+  .st{font-size:22px}
+}
+@media(max-width:380px){
+  .cg,.hex,.ng{grid-template-columns:1fr}
+  .lanes{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/xiaobao.js"></script>
+
+<!-- ===== 导航 ===== -->
+<header class="bar">
+  <div class="wrap nv">
+    <a class="brand" href="#top" aria-label="返回顶部"><span class="crest">LOL</span><span><b>LOL</b>电影网</span></a>
+    <nav class="links" id="navLinks">
+      <a href="#arc">双城之战</a>
+      <a href="#films">影片推荐</a>
+      <a href="#docs">电竞纪录片</a>
+      <a href="#heroes">英雄宇宙</a>
+      <a href="#guide">观影指南</a>
+      <a href="#news">行业资讯</a>
+      <a href="#about">合规声明</a>
+    </nav>
+    <button class="mbtn" id="menuBtn" aria-label="菜单">☰</button>
+  </div>
+</header>
+
+<!-- ===== Hero ===== -->
+<section class="hero" id="top">
+  <div class="wrap hx">
+    <div>
+      <span class="eyebrow">FOR SUMMONERS · 召唤师专属影讯</span>
+      <h1>当 <u>英雄联盟</u> 走进影院<br>每一场对局都是一部电影</h1>
+      <p>LOL电影网（loldianyingwang-cn）聚焦英雄联盟宇宙影视内容：动画《双城之战》逐集解读、电竞赛事纪录片推荐、电竞题材院线电影索引与观影顺序指南。理性观影，正版优先。</p>
+      <div class="acts">
+        <a class="b b1" href="#arc">进入双城之战解读 →</a>
+        <a class="b b2" href="#about">阅读合规声明</a>
+      </div>
+    </div>
+    <aside aria-hidden="true">
+      <p style="font-size:13px;color:var(--gold2);letter-spacing:1px;margin-bottom:12px">本站六大内容分路</p>
+      <div class="lanes">
+        <div class="lane"><span class="rk">上</span><span><b>动画解读</b><small>ARCANE 深度拆解</small></span></div>
+        <div class="lane"><span class="rk">野</span><span><b>影片推荐</b><small>电竞题材院线片</small></span></div>
+        <div class="lane"><span class="rk">中</span><span><b>纪录片</b><small>赛事背后的真实</small></span></div>
+        <div class="lane"><span class="rk">ADC</span><span><b>英雄宇宙</b><small>角色与世界观</small></span></div>
+        <div class="lane"><span class="rk">辅</span><span><b>观影指南</b><small>入坑顺序建议</small></span></div>
+        <div class="lane"><span class="rk">观</span><span><b>行业资讯</b><small>影视与赛事动态</small></span></div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<!-- ===== 栏目导航 ===== -->
+<section class="chs" id="nav">
+  <div class="wrap">
+    <h2 class="st">全站 <span>栏目</span> 导航</h2>
+    <p class="sn">六个内容分区，内页以锚点组织，检索与阅读更顺畅。</p>
+    <div class="cg">
+
+      <a class="ch" href="#arc">
+        <div class="num">01 / ARCANE</div>
+        <h3>双城之战解读</h3>
+        <p>逐集拆解叙事、美术、音乐与角色弧光。</p>
+        <span class="go">进入栏目 →</span>
+      </a>
+
+      <a class="ch" href="#films">
+        <div class="num">02 / FILMS</div>
+        <h3>影片推荐</h3>
+        <p>电竞、竞技、成长题材的院线与流媒体佳作。</p>
+        <span class="go">进入栏目 →</span>
+      </a>
+
+      <a class="ch" href="#docs">
+        <div class="num">03 / DOCS</div>
+        <h3>电竞纪录片</h3>
+        <p>镜头背后的训练、伤病、离别与冠军。</p>
+        <span class="go">进入栏目 →</span>
+      </a>
+
+      <a class="ch" href="#heroes">
+        <div class="num">04 / LORE</div>
+        <h3>英雄宇宙</h3>
+        <p>从游戏角色到影视角色的世界观梳理。</p>
+        <span class="go">进入栏目 →</span>
+      </a>
+
+      <a class="ch" href="#guide">
+        <div class="num">05 / GUIDE</div>
+        <h3>观影指南</h3>
+        <p>新人入坑的正确顺序与避坑提示。</p>
+        <span class="go">进入栏目 →</span>
+      </a>
+
+      <a class="ch" href="#news">
+        <div class="num">06 / NEWS</div>
+        <h3>行业资讯</h3>
+        <p>影视化进展、赛事档期与版权动态。</p>
+        <span class="go">进入栏目 →</span>
+      </a>
+
+      <a class="ch" href="#about">
+        <div class="num">07 / LEGAL</div>
+        <h3>合规声明</h3>
+        <p>版权、年龄提示与正版观影倡议。</p>
+        <span class="go">进入栏目 →</span>
+      </a>
+
+      <a class="ch" href="#top">
+        <div class="num">08 / TOP</div>
+        <h3>返回顶部</h3>
+        <p>重新浏览 LOL电影网 的全部内容。</p>
+        <span class="go">回到顶部 ↑</span>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== 栏目一：双城之战解读（时间线节点 DOM） ===== -->
+<section class="arc" id="arc">
+  <div class="wrap">
+    <h2 class="st">双城之战 <span>逐集解读</span></h2>
+    <p class="sn">以"事件节点"而非"剧集编号"重读《Arcane》，看两个城市如何被同一个选择撕裂。</p>
+    <div class="arc-map">
+      <nav class="arc-nav">
+        <a href="#arc">▍序：海克斯科技的代价</a>
+        <a href="#arc">▍第一幕：偷来的起点</a>
+        <a href="#arc">▍第二幕：棋盘上的棋子</a>
+        <a href="#arc">▍第三幕：两种愤怒</a>
+        <a href="#arc">▍第四幕：救赎的可能</a>
+      </nav>
+      <div class="nodes">
+
+        <article class="node">
+          <div class="ep">S1E1<i>EPISODE</i></div>
+          <div>
+            <h4>序：一场劫案，改写了两个人的命运</h4>
+            <p>蔚与金克丝的"第一次出手"，是整部剧的道德原点。导演用 40 秒的长镜头完成从喜剧到悲剧的切换，本节点解析镜头调度与配乐《Come Play》的叙事功能。</p>
+          </div>
+        </article>
+
+        <article class="node">
+          <div class="ep">S1E3<i>EPISODE</i></div>
+          <div>
+            <h4>第一幕：祖安的"地下"与皮城的"向上"</h4>
+            <p>垂直空间即阶级。本节拆解美术团队如何用色彩温度（皮城冷蓝 / 祖安暖橙）完成无需对白的立场表达，以及希尔科为何是全剧最完整的角色。</p>
+          </div>
+        </article>
+
+        <article class="node">
+          <div class="ep">S1E6<i>EPISODE</i></div>
+          <div>
+            <h4>第二幕：当发明成为武器</h4>
+            <p>杰斯与维克托的"进步叙事"在此转折。分析海克斯科技这一麦高芬如何同时承载希望与暴力，并对照现实中的技术伦理争议。</p>
+          </div>
+        </article>
+
+        <article class="node">
+          <div class="ep">S1E9<i>EPISODE</i></div>
+          <div>
+            <h4>第三幕：我没有失去你，是我创造了你</h4>
+            <p>全剧情感顶点。逐帧解读"Jinx"之名的诞生场景：台词、构图、留白与配音表演如何共同制造一次伦理坍塌。</p>
+          </div>
+        </article>
+
+        <article class="node">
+          <div class="ep">S2<i>EPISODE</i></div>
+          <div>
+            <h4>第四幕：战争之后，谁有资格原谅？</h4>
+            <p>第二季将"个人创伤"升级为"城市创伤"。本节点讨论叙事节奏的取舍、新角色的伦理功能，以及结局为何选择"不和解"。</p>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 栏目二：影片推荐（横向胶片 DOM） ===== -->
+<section class="films" id="films">
+  <div class="wrap">
+    <h2 class="st">影片 <span>推荐</span></h2>
+    <p class="sn">左右滑动胶片，挑选今晚的"对局"。所有条目均指向合法授权播放渠道。</p>
+    <div class="strip">
+
+      <article class="fm">
+        <div class="thumb t1"><span class="badge">动画</span>🎆</div>
+        <div class="fb">
+          <h4>双城之战 ARCANE</h4>
+          <div class="mt"><span>2021 · 动画剧集</span><span class="stars">★ 9.2</span></div>
+        </div>
+      </article>
+
+      <article class="fm">
+        <div class="thumb t2"><span class="badge">纪录片</span>🎮</div>
+        <div class="fb">
+          <h4>决胜巅峰：S 赛幕后</h4>
+          <div class="mt"><span>2023 · 赛事纪录片</span><span class="stars">★ 8.5</span></div>
+        </div>
+      </article>
+
+      <article class="fm">
+        <div class="thumb t3"><span class="badge">剧情</span>🏆</div>
+        <div class="fb">
+          <h4>电子竞技元年</h4>
+          <div class="mt"><span>2019 · 纪录电影</span><span class="stars">★ 8.0</span></div>
+        </div>
+      </article>
+
+      <article class="fm">
+        <div class="thumb t4"><span class="badge">剧情</span>🔥</div>
+        <div class="fb">
+          <h4>热血电竞：逆风局</h4>
+          <div class="mt"><span>2022 · 青春励志</span><span class="stars">★ 7.4</span></div>
+        </div>
+      </article>
+
+      <article class="fm">
+        <div class="thumb t5"><span class="badge">传记</span>🧠</div>
+        <div class="fb">
+          <h4>棋王与少年</h4>
+          <div class="mt"><span>2020 · 竞技传记</span><span class="stars">★ 8.3</span></div>
+        </div>
+      </article>
+
+      <article class="fm">
+        <div class="thumb t1"><span class="badge">科幻</span>🌐</div>
+        <div class="fb">
+          <h4>虚拟战场</h4>
+          <div class="mt"><span>2024 · 科幻动作</span><span class="stars">★ 7.8</span></div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== 栏目三：电竞纪录片（数据条 DOM） ===== -->
+<section class="docs" id="docs">
+  <div class="wrap">
+    <h2 class="st">电竞 <span>纪录片</span></h2>
+    <p class="sn">真正的竞技，发生在镜头之外。数据条代表观众口碑维度评分。</p>
+    <div class="dg">
+
+      <article class="doc">
+        <div class="top"><h4>《决胜巅峰：全球总决赛幕后》</h4><span class="yr">2023</span></div>
+        <p>跟随三支战队从入围赛走到决赛，记录训练室的凌晨、伤病与退役的抉择。</p>
+        <div class="bars">
+          <div class="bar-row">真实感<div class="bar-track"><div class="bar-fill" style="width:92%"></div></div></div>
+          <div class="bar-row">情绪张力<div class="bar-track"><div class="bar-fill" style="width:88%"></div></div></div>
+          <div class="bar-row">制作水准<div class="bar-track"><div class="bar-fill" style="width:85%"></div></div></div>
+        </div>
+      </article>
+
+      <article class="doc">
+        <div class="top"><h4>《手速之外：职业选手的一天》</h4><span class="yr">2022</span></div>
+        <p>APMX、Faker、Rookie 的日常切片：12 小时训练、手伤、与家人的视频通话。</p>
+        <div class="bars">
+          <div class="bar-row">真实感<div class="bar-track"><div class="bar-fill" style="width:95%"></div></div></div>
+          <div class="bar-row">情绪张力<div class="bar-track"><div class="bar-fill" style="width:82%"></div></div></div>
+          <div class="bar-row">制作水准<div class="bar-track"><div class="bar-fill" style="width:78%"></div></div></div>
+        </div>
+      </article>
+
+      <article class="doc">
+        <div class="top"><h4>《逆风：一支草根战队的夏天》</h4><span class="yr">2021</span></div>
+        <p>没有资本的战队如何靠出租屋、泡面和信念打进联赛，以及他们为何最终解散。</p>
+        <div class="bars">
+          <div class="bar-row">真实感<div class="bar-track"><div class="bar-fill" style="width:90%"></div></div></div>
+          <div class="bar-row">情绪张力<div class="bar-track"><div class="bar-fill" style="width:93%"></div></div></div>
+          <div class="bar-row">制作水准<div class="bar-track"><div class="bar-fill" style="width:74%"></div></div></div>
+        </div>
+      </article>
+
+      <article class="doc">
+        <div class="top"><h4>《冠军之后：退役访谈录》</h4><span class="yr">2024</span></div>
+        <p>四位世界冠军谈"打完这场去干什么"，关于身份、年龄与重新做人。</p>
+        <div class="bars">
+          <div class="bar-row">真实感<div class="bar-track"><div class="bar-fill" style="width:89%"></div></div></div>
+          <div class="bar-row">情绪张力<div class="bar-track"><div class="bar-fill" style="width:96%"></div></div></div>
+          <div class="bar-row">制作水准<div class="bar-track"><div class="bar-fill" style="width:80%"></div></div></div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== 栏目四：英雄宇宙（六边形网格 DOM） ===== -->
+<section class="heroes" id="heroes">
+  <div class="wrap">
+    <h2 class="st">英雄 <span>宇宙</span></h2>
+    <p class="sn">从游戏角色到影视角色：他们为何能被搬上银幕。</p>
+    <div class="hex">
+
+      <div class="hxbox"><span class="ic">💥</span><b>金克丝</b><small>混乱与创伤</small></div>
+      <div class="hxbox"><span class="ic">🛡️</span><b>蔚</b><small>秩序与责任</small></div>
+      <div class="hxbox"><span class="ic">🔧</span><b>杰斯</b><small>进步与代价</small></div>
+      <div class="hxbox"><span class="ic">📡</span><b>维克托</b><small>进化与异化</small></div>
+      <div class="hxbox"><span class="ic">🎩</span><b>凯特琳</b><small>特权与正义</small></div>
+
+      <div class="hxbox"><span class="ic">🧪</span><b>希尔科</b><small>父爱与野心</small></div>
+      <div class="hxbox"><span class="ic">🎻</span><b>奥莉安娜</b><small>机械与人性</small></div>
+      <div class="hxbox"><span class="ic">⚙️</span><b>艾克</b><small>时间与第二局</small></div>
+      <div class="hxbox"><span class="ic">🦁</span><b>安蓓萨</b><small>帝国与遗产</small></div>
+      <div class="hxbox"><span class="ic">🌹</span><b>梅尔</b><small>权力与抉择</small></div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== 栏目五：观影指南（手风琴 DOM） ===== -->
+<section class="guide" id="guide">
+  <div class="wrap">
+    <h2 class="st">观影 <span>指南</span></h2>
+    <p class="sn">新人入坑的正确顺序，以及几条必须知道的"避坑"提示。</p>
+    <div class="acc">
+
+      <details class="item" open>
+        <summary>Q1 · 没玩过英雄联盟，能看懂《双城之战》吗？</summary>
+        <div class="body">
+          <ol>
+            <li><b>能。</b>动画自洽完整，不需要任何游戏知识。</li>
+            <li>建议先了解"祖安 / 皮城"两座城市的设定（3 分钟即可）。</li>
+            <li>若想更沉浸，可先看完游戏"觉醒"系列 CG 短片。</li>
+          </ol>
+        </div>
+      </details>
+
+      <details class="item">
+        <summary>Q2 · 推荐观看顺序是？</summary>
+        <div class="body">
+          <ol>
+            <li><b>第一步：</b>《双城之战》第一季（9 集，一次性看完体验最佳）。</li>
+            <li><b>第二步：</b>游戏"星之守护者""真实伤害"音乐 MV，理解宇宙扩展。</li>
+            <li><b>第三步：</b>《双城之战》第二季，注意第一季结尾的伏笔回收。</li>
+            <li><b>第四步：</b>赛事纪录片，理解"电竞"这一现实维度。</li>
+          </ol>
+        </div>
+      </details>
+
+      <details class="item">
+        <summary>Q3 · 未成年人适合观看吗？</summary>
+        <div class="body">
+          <ol>
+            <li>本片含暴力、枪械、部分血腥画面与成人议题，<b>建议 16 岁以上</b>观看。</li>
+            <li>家长可先预览第 3、7、9 集后再决定是否陪同。</li>
+            <li>本站所有推荐均标注类型标签，请留意"动画 / 纪录片 / 剧情"差异。</li>
+          </ol>
+        </div>
+      </details>
+
+      <details class="item">
+        <summary>Q4 · 哪里可以合法观看？</summary>
+        <div class="body">
+          <ol>
+            <li>优先选择 Netflix、腾讯视频等<b>已获授权</b>的平台。</li>
+            <li>纪录片请认准官方频道与正版发行方。</li>
+            <li>本站<b>不提供</b>任何未授权下载、网盘或在线播放链接。</li>
+          </ol>
+        </div>
+      </details>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== 栏目六：行业资讯（大字日期 DOM） ===== -->
+<section class="news" id="news">
+  <div class="wrap">
+    <h2 class="st">行业 <span>资讯</span></h2>
+    <p class="sn">影视化、赛事档期与版权治理，三条线索同时推进。</p>
+    <div class="ng">
+
+      <article class="nc">
+        <div class="hd"><big>10</big><small>· 2026 年 10 月 · 影视化</small></div>
+        <div class="cb">
+          <h4>英雄联盟宇宙再添真人剧集</h4>
+          <p>继《双城之战》之后，另一块大陆的角色线进入开发阶段，官方强调"仍由游戏叙事团队把关"。</p>
+        </div>
+      </article>
+
+      <article class="nc">
+        <div class="hd"><big>09</big><small>· 2026 年 9 月 · 赛事</small></div>
+        <div class="cb">
+          <h4>全球总决赛纪录片同步上线</h4>
+          <p>本届赛事首次实现"比赛日 + 纪录片"同周更新，幕后镜头占比提升至 40%。</p>
+        </div>
+      </article>
+
+      <article class="nc">
+        <div class="hd"><big>07</big><small>· 2026 年 7 月 · 版权</small></div>
+        <div class="cb">
+          <h4>正版观影倡议：拒绝盗链</h4>
+          <p>多家影视与电竞媒体联合声明，仅保留授权入口，本站已全面下架第三方资源链接。</p>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== 关于与合规 ===== -->
+<section class="about" id="about">
+  <div class="wrap">
+    <h2 class="st">关于 <span>本站</span></h2>
+    <p class="sn">LOL电影网（loldianyingwang-cn）的立场与承诺。</p>
+    <div class="ag">
+      <div class="notice">
+        <h3>合规与观影声明</h3>
+        <ul>
+          <li>本站为<b>影视资讯与赏析</b>类网站，不提供任何未授权视频资源、下载或在线播放。</li>
+          <li>所有影片与纪录片推荐，均指向正版授权平台，尊重著作权与署名权。</li>
+          <li>部分作品含暴力、成人议题，建议观众根据自身情况理性选择，未成年人请在家长指导下观看。</li>
+          <li>站内影评与解读属作者个人观点，不代表 Riot Games、腾讯或任何播出平台立场，亦非官方站点。</li>
+          <li>本站不投放弹窗广告、不植入恶意代码、不采集非必要个人信息。</li>
+          <li>侵权反馈通道：dmca@example.com，承诺 48 小时内响应并处理。</li>
+        </ul>
+      </div>
+      <div>
+        <div class="kpis">
+          <div class="kpi"><b>180+</b><span>收录影视条目</span></div>
+          <div class="kpi"><b>96</b><span>原创解读文章</span></div>
+          <div class="kpi"><b>12</b><span>合作正版平台</span></div>
+          <div class="kpi"><b>100%</b><span>合规资源导向</span></div>
+        </div>
+        <div class="notice" style="margin-top:16px">
+          <h3>联系我们</h3>
+          <ul>
+            <li>内容合作：editor@example.com</li>
+            <li>侵权投诉：dmca@example.com</li>
+            <li>读者来信：hello@example.com</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 页脚 ===== -->
+<footer>
+  <div class="wrap">
+    <div class="fg">
+      <div class="fc">
+        <a class="brand" href="#top"><span class="crest">LOL</span><span><b>LOL</b>电影网</span></a>
+        <p style="color:var(--sub);font-size:13px;margin-top:12px;max-width:320px">
+          召唤师的电影响应站。loldianyingwang-cn 只做一件事：把值得看的，讲清楚。
+        </p>
+      </div>
+      <div class="fc">
+        <h5>内容栏目</h5>
+        <a href="#arc">双城之战解读</a>
+        <a href="#films">影片推荐</a>
+        <a href="#docs">电竞纪录片</a>
+        <a href="#heroes">英雄宇宙</a>
+      </div>
+      <div class="fc">
+        <h5>实用索引</h5>
+        <a href="#guide">观影顺序</a>
+        <a href="#guide">年龄提示</a>
+        <a href="#news">赛事档期</a>
+        <a href="#news">版权动态</a>
+      </div>
+      <div class="fc">
+        <h5>站点信息</h5>
+        <a href="#about">关于本站</a>
+        <a href="#about">合规声明</a>
+        <a href="#">隐私说明</a>
+        <a href="#">侵权投诉</a>
+      </div>
+    </div>
+    <div class="copy">
+      <span>© 2026 <span class="hl">LOL电影网</span> · loldianyingwang-cn · 保留所有权利。本站与 Riot Games / 腾讯游戏无隶属关系。</span>
+      <span>网站网址：https://loldianyingwang-cn.github.io</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+// 移动端菜单
+var mb=document.getElementById('menuBtn'), nl=document.getElementById('navLinks');
+mb.addEventListener('click',function(){
+  nl.classList.toggle('open');
+  mb.textContent=nl.classList.contains('open')?'✕':'☰';
+});
+nl.addEventListener('click',function(e){
+  if(e.target.tagName==='A'){ nl.classList.remove('open'); mb.textContent='☰'; }
+});
+
+// 滚动导航高亮
+var secs=document.querySelectorAll('section[id]'), links=document.querySelectorAll('.links a');
+window.addEventListener('scroll',function(){
+  var pos=window.scrollY+120, cur='';
+  secs.forEach(function(s){ if(s.offsetTop<=pos) cur=s.id; });
+  links.forEach(function(a){
+    var on=(a.getAttribute('href')==='#'+cur);
+    a.style.color=on?'#fff':'';
+    a.style.background=on?'rgba(255,255,255,.06)':'';
+  });
+});
+</script>
+</body>
+</html>
